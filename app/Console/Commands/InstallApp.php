@@ -1,18 +1,18 @@
 <?php
 
-namespace Lara\Console\Commands;
+namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Process;
 
-class AppInstall extends Command
+class InstallApp extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:install';
+    protected $signature = 'install:app';
 
     /**
      * The console command description.
