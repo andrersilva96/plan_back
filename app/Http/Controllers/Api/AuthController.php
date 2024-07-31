@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Illuminate\Http\{Request, Response};
+use Illuminate\Http\{Request, JsonResponse};
 use Illuminate\Support\Facades\{Hash, Validator};
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    public function register(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
@@ -37,7 +38,7 @@ class AuthController extends Controller
         ], 201);
     }
 
-    public function login(Request $request)
+    public function login(Request $request): JsonResponse
     {
         if (!$token = JWTAuth::attempt($request->only('email', 'password'))) {
             return response()->json([
@@ -52,7 +53,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
+    public function logout(): JsonResponse
     {
         try {
             JWTAuth::invalidate(JWTAuth::getToken());
@@ -62,7 +63,7 @@ class AuthController extends Controller
         }
     }
 
-    public function me()
+    public function me(): JsonResponse
     {
         return response()->json([
             'success' => true,

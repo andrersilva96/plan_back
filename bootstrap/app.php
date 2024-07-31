@@ -18,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (AuthenticationException $e, Request $request) {
+            $request->headers->set('Accept', 'application/json');
             if ($request->is('api/*')) {
                 return response()->json([
                     'message' => $e->getMessage(),
