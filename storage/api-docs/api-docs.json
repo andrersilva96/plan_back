@@ -1,0 +1,60 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Authentication",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/register": {
+            "get": {
+                "tags": [
+                    "Register"
+                ],
+                "description": "Returns the token",
+                "operationId": "7291d10013fad0f1d150c4505417863c",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "example": {
+                                    "name": "André Rodrigues",
+                                    "email": "andre.rsilva96@gmail.com",
+                                    "password": "123456789",
+                                    "password_confirmation": "123456789"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "success": true,
+                                            "token": "token generated"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Register",
+            "description": "Register"
+        }
+    ]
+}

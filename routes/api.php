@@ -16,3 +16,5 @@ Route::group(['as' => 'api.'], function () {
         Orion::hasOneResource('products', 'users', \App\Http\Controllers\Api\ProductController::class);
     });
 });
+
+Route::post('/test', [\App\Http\Controllers\Api\UserController::class, 'test']);
