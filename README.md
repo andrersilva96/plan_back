@@ -13,7 +13,11 @@ The project is an implementation of a RESTful API with PHP, Laravel and MySQL, i
 5. Redis
 
 ## Documentation
-[Here is the documentation.](#)
+[Here is the documentation.](http://localhost/api/documentation)
+[But I prefer the Postman documentation!](https://documenter.getpostman.com/view/10880762/2sA3kd9cua)
+
+## Kanban - Trello
+https://trello.com/invite/b/66aa634d9af5a11fd3693155/ATTI07983eba7b16f77a5b66699b8a6ecee661E767CB/liberfly
 
 ## Installation
 
