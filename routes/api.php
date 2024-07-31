@@ -11,8 +11,8 @@ Route::group(['as' => 'api.'], function () {
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('me', [AuthController::class, 'me']);
+        Orion::resource('users', \App\Http\Controllers\Api\UserController::class);
         Orion::resource('products', \App\Http\Controllers\Api\ProductController::class);
-        // Orion::hasOneResource('products', 'users', \App\Http\Controllers\Api\ProductController::class);
+        Orion::hasOneResource('products', 'users', \App\Http\Controllers\Api\ProductController::class);
     });
-
 });
