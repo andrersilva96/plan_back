@@ -21,7 +21,6 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'success' => false,
                 'messages' => $validator->errors()->getMessages()
             ], 409);
         }
@@ -32,42 +31,30 @@ class AuthController extends Controller
             'password' => Hash::make($request->get('password')),
         ]);
 
-        return response()->json([
-            'success' => true,
-            'token' => JWTAuth::fromUser($user),
-        ], 201);
+        return response()->json(['token' => JWTAuth::fromUser($user)], 201);
     }
 
     public function login(Request $request): JsonResponse
     {
         if (!$token = JWTAuth::attempt($request->only('email', 'password'))) {
-            return response()->json([
-                'success' => false,
-                'message' => __('auth.failed')
-            ], 401);
+            return response()->json(['message' => __('auth.failed')], 401);
         }
 
-        return response()->json([
-            'success' => true,
-            'token' => $token,
-        ]);
+        return response()->json(['token' => $token]);
     }
 
     public function logout(): JsonResponse
     {
         try {
             JWTAuth::invalidate(JWTAuth::getToken());
-            return response()->json(['success' => true, 'message' => __('auth.logout')]);
+            return response()->json(['message' => __('auth.logout')]);
         } catch (JWTException) {
-            return response()->json(['success' => false, 'message' => __('auth.failed_logout')]);
+            return response()->json(['message' => __('auth.failed_logout')]);
         }
     }
 
     public function me(): JsonResponse
     {
-        return response()->json([
-            'success' => true,
-            'data' => auth()->user(),
-        ]);
+        return response()->json(['data' => auth()->user()]);
     }
 }
