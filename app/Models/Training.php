@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Training extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'description'];
+
+    // Relationships
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_trainings')->withPivot('answer');
+    }
 }
