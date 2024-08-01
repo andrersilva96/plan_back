@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Product;
+use App\Models\Training;
 use App\Models\User;
-use App\Policies\ProductPolicy;
+use App\Policies\TrainingPolicy;
 use Orion\Http\Controllers\Controller;
 
-class ProductController extends Controller
+class TrainingController extends Controller
 {
-    protected $model = Product::class;
+    protected $model = Training::class;
 
     protected $relation = User::class;
 
     protected $policies = [
-        Product::class => ProductPolicy::class,
+        Training::class => TrainingPolicy::class,
     ];
 
     public function boot()
