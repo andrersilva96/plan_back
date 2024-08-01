@@ -8,7 +8,7 @@ use Orion\Http\Requests\Request;
 
 class UserTrainingRequest extends Request
 {
-    public function storeRules(): array
+    public function commonRules(): array
     {
         return [
             'user_id' => 'required|numeric|exists:users,id',
