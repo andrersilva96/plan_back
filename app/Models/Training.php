@@ -14,6 +14,6 @@ class Training extends Model
     // Relationships
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_trainings')->withPivot('answer');
+        return $this->belongsToMany(User::class);
     }
 }

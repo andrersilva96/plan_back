@@ -13,10 +13,7 @@ class JsonResponse
 
         if ($response instanceof \Illuminate\Http\JsonResponse) {
             $data = $response->getData(true);
-            $response->setData([
-                'success' => $response->getStatusCode() < 400,
-                'data' => $data
-            ]);
+            $response->setData(['success' => $response->getStatusCode() < 400, ...$data]);
         }
 
         return $response;

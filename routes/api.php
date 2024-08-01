@@ -13,7 +13,7 @@ Route::group(['as' => 'api.'], function () {
         Route::get('me', [AuthController::class, 'me']);
         Orion::resource('users', \App\Http\Controllers\Api\UserController::class);
         Orion::resource('trainings', \App\Http\Controllers\Api\TrainingController::class);
-        Orion::hasOneResource('trainings', 'users', \App\Http\Controllers\Api\TrainingController::class);
+        Orion::resource('user_trainings' , \App\Http\Controllers\Api\UserTrainingController::class);
     });
 });
 

@@ -39,4 +39,10 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    // Relationships
+    public function trainings()
+    {
+        return $this->belongsToMany(Training::class);
+    }
 }
