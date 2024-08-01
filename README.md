@@ -18,7 +18,7 @@ Here is the  [documentation.](http://localhost/api/documentation)
 But I prefer the [Postman](https://documenter.getpostman.com/view/10880762/2sA3kd9wnB) documentation!
 
 ## Kanban - Trello
-https://trello.com/invite/b/66a42e5e84f44bd8fd878aba/ATTI4c6d9e11229b68c802fcbe1d0b6b2ee8CBD649B1/plan
+https://trello.com/invite/b/66ab8cdc17b1921ca4b8221b/ATTIeccaafb3430327369baf9977e906354506F47095/plan
 
 ## Installation
 
